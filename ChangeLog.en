@@ -1,0 +1,217 @@
+2001-01-29  03:50.25 a.m
+
+	* I FINISHED!!!!!!!!!........
+	  I don't want to do more comments, I still have to write the
+	  makefiles and some documentation... goodbye.
+
+2001-01-29  01:57.04 a.m
+
+	* Ready, this was a fuc... heavy loaded day.
+	  I did almost the whole game and it's excellent, here's a list
+	  of the new things:
+	  - title screen.
+	  - high scores table.
+	  - the banner (5 graphics).
+	  - sounds.
+	  - the 6 levels.
+	  - 3 backgrounds (from a CD I had here ;-)
+	  - blocks (`blocks.bmp').
+	  - The GAME OVER screen.
+	  - The siren (with sound).
+	  And other small things... THOUSANDS OF SMALL THINGS!!!...
+	  Well, I'm tired...
+
+2001-01-28  12:44.18 a.m
+
+	* Anyway, I found out how the Rat-Poker was done... too late,
+	  I don't think so, now, the time I have left, I will use it for
+	  some cosmetic details (BANNER, MENU, INTRO), and tomorrow...
+	  (I mean, today in the morning ;-) I will change a lot the code.
+	* Well, created the datafile, and erased thousands of bitmaps,
+	  apart from doing one or another sketch level.
+
+2001-01-27  09:16.39 p.m
+
+	* Finally I have the bubbles, the graphics (bubble.bmp and
+	  donkey_bubble.bp), and the animation is simply perfect.
+
+2001-01-27  08:40.15 p.m
+
+	* Finally, the `scorer.bmp' graphic, is ready, and it took it's
+	  time, so I hope you enjoy it.
+	* Changed DOORs for BUBBLEs, in the end, you will have to
+	  enclose the donkeys in bubbles (like in Rat-Poker).
+
+2001-01-27  07:31.31 p.m
+
+	* Added the needed fonts to the scoreboards and everything
+	  looks right now.
+
+2001-01-27  06:54.25 p.m
+
+	* Ready the COUNTER, SCORE and BANNER graphics;
+
+2001-01-27  04:02.22 p.m
+
+	* I placed everything in it's place and fixed some bugs.
+	* The following graphics are ready (made with my drawing
+	  program 2D SPRITEStudio):
+	  - palette.bmp;
+	  - donkey.bmp;
+	  - donkey_death.bmp;
+	  - donkey_part1.bmp;
+	  - donkey_part2.bmp;
+	  - donkey_part3.bmp;
+	  - crusher.bmp;
+	  - crusher_motor.bmp;
+	  - crusher_pulley.bmp;
+	  Some, with recommendation from my brothers.
+
+2001-01-27  01:30.24 p.m
+
+	* Ready for the donkey parts to leave flying along with the
+	  blood.
+
+2001-01-27  12:39.48 p.m
+
+	* Fixed the donkeys' flip, now, they look at both sides.
+
+2001-01-27  12:12.47 p.m
+
+	* Improved the animation when donkeys fall:
+	  - first, in straight line;
+	  - when they reach the funnel, they rotate;
+	* WOOOOOW !!!!!!... I added an animation where the donkeys
+	  open their mouths, and it's excellent, perfect.
+
+2001-01-27  11:32.46 a.m
+
+	* Done, now the donkeys can be drawn with different colors,
+	  thanks to a COLOR_MAP: the `tint_map'.
+
+2001-01-27  11:16.49 a.m
+
+	* Added the donkey graphics to the game, and a rotation
+	  animation... it's looking excellent.
+
+2001-01-27  11:05.19 a.m
+
+	* Made a small picture for the donkeys, and looks good, I
+	  think it will be the final one.
+
+2001-01-27  10:18.00 a.m
+
+	* Prepared the particle "chains", with which I can make
+	  blood spouts.
+
+2001-01-27  02:31.22 a.m
+
+	* Modified some colors.
+	* Fixed a damn bug, now donkeys move in the following order:
+	  - those which are at the exit (EXIT);
+	  - the others;
+	  - those who are in wait blocks (STOP);
+
+2001-01-27  12:34.05 a.m
+
+	* Added all necessary to support multiple doors.
+
+2001-01-26  11:43.15 p.m
+
+	* The short name of the files will be `donbolo.*'.
+	* Added the screen shot code.
+	* I just came back from seeing "Office Space".
+
+2001-01-26  09:54.35 p.m
+
+	* SPECTACULAR!!!... Blood works perfectly, it has size,
+	  weight and even probability for more realism.
+	  It has an EXCELENT size!!!
+
+2001-01-26  08:56.52 p.m
+
+	* Decided to use random values for each particle, for each
+	  can have a different weight and now they distribute less
+	  uniformly.
+	* A small particle system for the blood is ready.
+
+2001-01-26  07:17.08 p.m
+
+	* Fixed a bug with deleting donkeys, the pointer was being
+	  left in a level's block, and if somebody used it, it all
+	  went to hell.
+	* Traps are ready (doors), they gave me some headaches, but
+	  I managed to do it.
+	* Improved the donkey animation, now they shudder!
+
+2001-01-26  05:37.58 p.m
+
+	* The funnel is ready, donkey animation too.
+
+2001-01-26  05:15.55 p.m
+
+	* The definitive title of the game will be: `Donkey Bolonkey'
+	* Added a vectorial graphic of the funnel.
+
+2001-01-26  04:44.28 p.m
+
+	* Now the donkeys (balls), instead of vanishing, I made for
+	  them a falling effect.
+
+2001-01-26  03:53.45 p.m
+
+	* Changed some names, INPUT to HOME, and OUTPUT to EXIT.
+	* Added the switch `moved' to the donkeys to know which
+	  donkeys moved before the others (in the exit process).
+	* Modified the way the donkeys move:
+	  PRIMERO: First those which are at the exit (OUTPUT);
+	  LUEGO: then the rest;
+	* Functions ready to see the "hand" of the donkeys (like in
+	  the poker).
+
+2001-01-26  01:14.16 p.m
+
+	* Now it works perfectly, the donkeys (which are balls at the
+	  moment) go forward, wait at the entrance to take a new
+	  position, and if it fills up, YOU LOOSE!!!
+
+2001-01-26  12:31.06 p.m
+
+	* Also some extra functions to obtain the beginning position,
+	  the flags of a block and others.
+	  la posici¢n de inicio, banderas de un bloque y otras.
+	* Added the functions for the donkeys, and their linked list.
+
+2001-01-26  12:02.36 p.m
+
+	* Came back from eating.
+
+2001-01-26  11:33.41 a.m
+
+	* Ready with the level format, and they can be drawed, but
+	  with graphics of fourth division...
+	* I made the functions for the player and leve, but I need
+	  to flesh them out :-)
+
+2001-01-26  11:05.48 a.m
+
+	* There are main() and play_game(), incredible, the first
+	  time I write them without copying from another place ;-)
+	* Created the RHIDE proyect, and the dontro.c file.
+	* The name of the game could be: `Donkeys Troubles' (DonTro).
+
+2001-01-26  10:30.50 a.m
+
+	* Ok, let's get going.
+	* Read the Rule-O-Matic rules... A PUZZLE GAME, OK, I've got
+	  an idea, but the worst part is we have to put DONKEYS?!?!?!
+	  Well, the idea is:
+	  Something like Rat-Poker, but with donkeys ;-)
+	  I've also have to put a BANNER... something really weird,
+	  I'll make something for my 2DSS and TETRIS Queen (and we
+	  are ready :-) Also a particle system... well, I see what
+	  I have to do.
+	* Damn, damn, I FELT ASLEEP!!!... It's 10 in the morning, and
+	  the time in the UK is like 6 hours before Argentina, so I
+	  should have woken up at 6 o'clock... theoretically :-)
+

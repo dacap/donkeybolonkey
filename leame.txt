@@ -1,0 +1,222 @@
+Donkey Bolonkey
+Copyright (C) 2001 por David A. Capello
+
+Este juego no tiene ningún tipo de garantía, ver el fichero COPYING
+para más detalles al respecto.
+
+INTRODUCCION
+
+  Este juego es mi más rápida creación: DESARROLLADA EN TAN SOLO 3 DIAS!!!
+  Sin mirar código ni utilizar gráficos ajenos (excepto los fondos :-).
+  Bueno, y aquí está, un simple (mejorado o empeorado) clon del Rat-Poker,
+  solamente que con burros... por qué?... bueno, es una larga historia...
+
+INSTALACION
+
+  Si tiene el código fuente, Allegro bien instalado como es debido,
+  el paquete DJGPP y la utilidad `make', no debería tener problemas
+  al compilar este programa desde el mismo directorio del juego.
+
+	C:\dkbk>make
+
+  También, ahora hay otro `makefile' para Unix. Utilice:
+
+	~/dkbk$ make -f makefile.uni
+
+  Teóricamente debería de funcionar.
+
+SOBRE EL SPEEDHACK
+
+  Este juego está creado para la competencia "SpeedHack" del año 2001,
+  donde se junta un grupo de programadores independientes los cuales
+  hacen juegos por separados en solo 3 días (un fin de semana).
+
+  Los requisitos de la competencia eran:
+  - un juego de tipo puzzle;
+  - una tabla de puntuaciones;
+  - debía aparecer por lo menos un burro (el juego está lleno ;-)
+  - tenía que haber un sistema de partículas (apenas lo jueguen...
+    se darán cuenta en que lo utilicé :-)
+  - había que poner un "banner" (el BANNER VISION hace de las suyas)
+  - el tamaño del código y datos (comprimidos en un ZIP), no debían
+    superar los 250 KB;
+
+  La competencia es organizada por Arron Shutt, y para más información,
+  puede visitar:
+
+    http://www.ashutt.demon.co.uk/speedhack/
+
+  Encontrará todo al respecto, y hasta los mismos juegos que participaron
+  en la competecia.
+
+SOBRE EL JUEGO
+
+  El objetivo del juego en sí, es ir ordenando burros los cuales sean
+  del mismo color. Así, por ejemplo, al juntar 3 o más burros rojos,
+  los mismos "desaparecerán" de un forma medio "extraña"... ya verán.
+  Para ordenar los burros se utilizan las teclas:
+
+  TAB (tabulador)		   Cambia la burbuja actual.
+  SPACEBAR (barra espaciadora)	   Intercambiar entre el burro de la
+				   burbuja y el que se encuentra en el
+				   bloque con el rubí en frente de la
+				   misma.
+
+  Otras teclas extras que tiene son:
+
+  F12				   Captura la pantalla guardándola como
+				   un archivo `capt????.pcx'.
+  P				   La pausa, detiene el juego hasta que
+				   se presione una tecla.
+  ESC				   Sale del juego rápidamente. Tenga
+				   cuidado al utilizarla.
+
+NIVELES
+
+  Si quiere agregar un nivel (solamente lo puede hacer con el código
+  fuente, Allegro y algún compilador aceptable por esta librería),
+  debe tener en cuenta los archivos `levels.h' y `level.c'. También
+  puede modificar niveles si lo quiere y le resulta más sencillo.
+
+  Solamente hace falta ver un poco el archivo `levels.h' y darse
+  cuenta como funciona la cosa. Los niveles están por bloques,
+  los cuales contienen una letra determinada (recuerde que todos
+  los bloques tienen una dirección, por lo que deberá utilizar
+  el operador OR '|' para mezclar diferentes tipos):
+
+  L: Left	El bloque hace ir a los burros hacia la izquierda.
+  U: Up		El bloque hace ir a los burros hacia arriba.
+  R: Right	El bloque hace ir a los burros hacia la derecha.
+  D: Down	El bloque hace ir a los burros hacia abajo.
+  H: Home	Desde aquí los burros salen. Solo debe haber una
+		casa por nivel, si no, se utilizará la primera que
+		se encuentre (desde parte superior-izquierda, hacia
+		parte inferior-derecha).
+  E: Exit	Es una salida, por nivel tienen que haber 3 salidas
+		como mínimo, es recomendable ubicarlas cerca de la
+		parte inferior izquierda (por ubicación de la trituradora).
+  S: Stop	Son bloques donde el burro puede esperar el paso de
+		otro. Estos bloques deben estar tanto en el bloque de
+		la casa, como en los que le siguen como para entrar
+		a la "ronda" (ya que los únicos burros que esperan
+		son los que entran).
+  B: Bubble	Donde se ubica la burbuja, también hay que indicar la
+		dirección del mismo mediante el operador OR, para
+		saber qué bloque agarrar burros.
+  T: Trap	Se le puede adjuntar a un bloque normal de dirección
+		para indicar que este bloque es el objetivo de alguna
+		burbuja (son los bloques con el rubí en el medio que
+		se encuentran en el juego).
+
+  Puede buscar `#include "levels.h"' en el archivo `level.c' para
+  más información al respecto. También, es muy útil ver la función
+  `reset_level' en el mismo fichero, ya que aquí es donde está
+  el `switch' global para seleccionar el nivel adecuado, y no se
+  preocupe, si agrega más casos continuos (case 7, case 8...) para
+  mayor cantidad de niveles, los mismos serán llamados sin ningún
+  problema.
+
+CREDITOS
+
+  Programador:
+	David A. Capello
+	Programando en C/C++ con Allegro, DJGPP y RHIDE.
+	Horarios totales:
+	Viernes 26: de 10am a 2am del otro día.
+	Sabado 27:  de 8am a 2am del otro día.
+	Domingo 28: de 8am a 4am del Lunes 29.
+	El Lunes a las 4:30 de la mañana mandé el ZIP por email
+	a la dirección de Arron.
+
+	Total de horas programando:
+	16hs + 18hs + 20hs = 54 horas despierto en TOTAL
+	Lo que nos da que dormí 18 horas solamente el
+	fin de semana.
+	También abría que restarle un par de horas por
+	la comida y esas cosas (como ir al baño por ej.).
+
+  Gráficos:
+	David A. Capello
+	Todos los hice con mi programa 2D SPRITEStudio, eso
+	que todavía no tiene Undo ni Redo, pero lo logré.
+	El logo "Donkey Bolonkey" y "Game Over" fueron
+	con 3D MAX, los tres fondos vienen de un CD, y
+	las fuentes de letras con TTF2PCX.
+
+	Algunas ideas (bocetos preliminares en papel) para
+	crear la trituradora y los marcadores de puntajes,
+	vienen por parte de mi hermano.
+
+  Sonidos:
+	* Sirena: no se de donde salió :-), la tenía por ahí de casualidad.
+
+	* Burbuja: hecha por mi hermano Gaspar.
+
+	* Trituradora: Fueron golpes en la mesa por mi hermano,
+	y luego yo hice la cierra con la boca, al final lo mezclamos.
+
+	* Motor: el ruido del motor, aunque no lo crean, viene de un
+	CD de Colin McRae Rally de PlayStation, hay una parte donde
+	hay unos mecánicos arreglando el auto...
+
+	* Grito del burro: Estuvimos como una hora y media intentando
+	hacer ruidos de burros gritando, todos sonaban raros y hasta
+	algunos daban lástima por los burros, al final, decidimos
+	por poner una voz que decía "Hey, you son of a ...", y le di
+	un efecto agudo.
+
+	* Voz de comienzo: La voz que escuchan, es mía, sin absolutamente
+	ninguna deformación, si me escucho horrible, perdónenme...
+
+  Música:
+	Lamentablemente no hubo tiempo como para ponerle algo de
+	música, aunque me hubiera gustado mucho.
+
+  Testeadores:
+	Yo personalmente no le jugué mucho, hasta les dije a mis hermanos
+	que me AVISEN CUANDO ME VUELVO ESTUPIDO Y NO PARO DE JUGAR...
+	ya que me pasa que pierdo tiempo probando el juego... o mejor
+	dicho, boludendo con el juego.
+	En realidad, el que más "testeó" el juego luego de la competencia
+	fue mi hermano Gaspar, el cual le llegó al final sin continuar
+	con un puntaje de 7200. Por lo cual...
+	...ES POSIBLE LLEGARLE AL FINAL AL JUEGO!!!... aunque cuesta un
+	poco.
+
+  Título Donkey Bolonkey:
+	Idea original de mi hermano Gaspar
+	(si no ponía esto... me golpeaba :-)
+
+  Documentación:
+	La que ven ahora, la hice fuera del horario del SpeedHack,
+	ya que estaba muy cansado como para escribir documentación en
+	ese entonces.
+
+  Agradecimientos:
+	Especialmente a:
+	* DJ Delorie por su compilador DJGPP.
+	* Charles W Sandmann por el servidor DPMI para MS-DOS.
+	* Robert Höhne por crear RHIDE.
+	* Shawn Hargreaves por comenzar y seguir con la librería Allegro.
+	* Arron Shutt por organizar la mejor competencia de video juegos
+	  y aguantarnos a todos.
+
+VINCULOS
+
+  Si desea ver más cosas, aquí tiene una serie de vínculos interesantes:
+
+  DJGPP:	http://www.delorie.com/djgpp/
+  RHIDE:	http://www.lanet.lv/~pavenis/rhide.html
+  Allegro:	http://www.talula.demon.co.uk/allegro/
+  SpeedHack:	http://www.ashutt.demon.co.uk/speedhack/
+
+EXTRA
+
+  Por último, agregué un par de viejas imágenes del juego sin completar.
+
+  --
+  Copyright (C) 2001 por David A. Capello
+
+  dacap@users.sourceforge.net
+  http://www.davidcapello.com.ar/
+
