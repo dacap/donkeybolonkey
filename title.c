@@ -26,6 +26,7 @@ static int start = FALSE;
 
 static int title_time;
 static int title_sound;
+static int title_first_time = TRUE;
 
 static int hiscore_state = FALSE;
 
@@ -37,7 +38,10 @@ static void init_title()
   set_palette_range(datafile[PAL_TITLE].dat, 0x90, 0xff, TRUE);
 
   title_time = 0;
-  title_sound = FALSE;
+  if (title_first_time) {
+    title_first_time = FALSE;
+    title_sound = FALSE;
+  }
 }
 
 
@@ -76,38 +80,38 @@ static void draw_title(BITMAP *bmp)
 
   /* title */
   if (title_time > (FRAMES_PER_SECOND/2)) {
-    blit(get_bitmap(BMP_TITLE), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    blit(get_bitmap(BMP_TITLE), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
   }
   else {
     f = 100 * title_time / (FRAMES_PER_SECOND/2);
 
     stretch_blit(get_bitmap(BMP_TITLE), bmp,
       0, 0, get_bitmap(BMP_TITLE)->w, get_bitmap(BMP_TITLE)->h,
-      SCREEN_W-SCREEN_W*f/100,
-      -SCREEN_H+SCREEN_H*f/100,
-      SCREEN_W+(SCREEN_W*2-SCREEN_W*2*f/100),
-      SCREEN_H+(SCREEN_H*2-SCREEN_H*2*f/100));
+      GAME_W-GAME_W*f/100,
+      -GAME_H+GAME_H*f/100,
+      GAME_W+(GAME_W*2-GAME_W*2*f/100),
+      GAME_H+(GAME_H*2-GAME_H*2*f/100));
   }
 
   /* background */
   if (title_time > FRAMES_PER_SECOND) {
     if (title_time > FRAMES_PER_SECOND*3/2) {
       if (title_time < FRAMES_PER_SECOND*2)
-        masked_blit(get_bitmap(BMP_TITLE_BG), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+        masked_blit(get_bitmap(BMP_TITLE_BG), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
       else if (title_time < FRAMES_PER_SECOND*3)
-        masked_blit(get_bitmap(BMP_TITLE_BG2), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+        masked_blit(get_bitmap(BMP_TITLE_BG2), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
       else if (title_time < FRAMES_PER_SECOND*4)
-        masked_blit(get_bitmap(BMP_TITLE_BG), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+        masked_blit(get_bitmap(BMP_TITLE_BG), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
       else if (title_time < FRAMES_PER_SECOND*9/2) {
         f = 100 * (title_time-FRAMES_PER_SECOND*4) / (FRAMES_PER_SECOND/2);
         masked_blit(get_bitmap(BMP_TITLE_BG), bmp,
-          0, 0, 0, SCREEN_H*f/100, SCREEN_W, SCREEN_H);
+          0, 0, 0, GAME_H*f/100, GAME_W, GAME_H);
       }
     }
     else {
       f = 100 * (title_time-FRAMES_PER_SECOND) / (FRAMES_PER_SECOND/2);
       masked_blit(get_bitmap(BMP_TITLE_BG), bmp,
-        0, 0, 0, SCREEN_H-SCREEN_H*f/100, SCREEN_W, SCREEN_H);
+        0, 0, 0, GAME_H-GAME_H*f/100, GAME_W, GAME_H);
     }
   }
 
@@ -116,9 +120,9 @@ static void draw_title(BITMAP *bmp)
     if (title_time%FRAMES_PER_SECOND < FRAMES_PER_SECOND/2) {
       text_mode(-1);
       textout_centre(bmp, datafile[FONT_GAME].dat,
-        "Press ENTER to start", SCREEN_W/2, SCREEN_H-64, -1);
+        "Press ENTER to start", GAME_W/2, GAME_H-64, -1);
       textout_centre(bmp, datafile[FONT_GAME].dat,
-        "Press ESC to exit", SCREEN_W/2, SCREEN_H-40, -1);
+        "Press ESC to exit", GAME_W/2, GAME_H-40, -1);
     }
   }
 }
@@ -136,9 +140,8 @@ END_OF_STATIC_FUNCTION(inc_count);
 
 
 
-int title_screen()
+int title_screen(BITMAP *bmp)
 {
-  BITMAP *bmp = create_bitmap(SCREEN_W, SCREEN_H);
   int gameover = FALSE;
 
   init_title();
@@ -170,8 +173,7 @@ int title_screen()
     else
       draw_hiscore(bmp);
 
-    vsync();
-    blit(bmp, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    my_flip(bmp);
 
     /* create new capture */
     if (key[KEY_F12])
@@ -181,8 +183,6 @@ int title_screen()
   remove_int(inc_count);
 
   shutdown_title();
-
-  destroy_bitmap(bmp);
   return start;
 }
 
@@ -220,8 +220,9 @@ void draw_warning(BITMAP *bmp)
 
   for (c=0; warning_text[c]; c++)
     textout_centre(bmp, datafile[FONT_GAME].dat, warning_text[c],
-      SCREEN_W/2, text_height(datafile[FONT_GAME].dat)*c, -1);
+      GAME_W/2, text_height(datafile[FONT_GAME].dat)*c, -1);
 
+  my_flip(bmp);
   my_clear_keybuf();
   readkey();
   my_clear_keybuf();
@@ -233,13 +234,14 @@ void draw_warning(BITMAP *bmp)
 
 void draw_controls(BITMAP *bmp)
 {
-  blit(get_bitmap(BMP_BG1), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+  blit(get_bitmap(BMP_BG1), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
 
-  textout_centre(bmp, datafile[FONT_GAME].dat, "CONTROLS", SCREEN_W/2, 16, -1);
+  textout_centre(bmp, datafile[FONT_GAME].dat, "CONTROLS", GAME_W/2, 16, -1);
   textout(bmp, datafile[FONT_GAME].dat, "SPACE BAR - traps a donkey", 8, 64, -1);
   textout(bmp, datafile[FONT_GAME].dat, "TAB - changes the active bubble", 8, 84, -1);
   textout(bmp, datafile[FONT_GAME].dat, "ESC - \"fast\" exit... VERY FAST! :-)", 8, 104, -1);
 
+  my_flip(bmp);
   my_clear_keybuf();
   readkey();
   my_clear_keybuf();
@@ -270,14 +272,15 @@ void draw_credits(BITMAP *bmp)
   };
   int c;
 
-  blit(get_bitmap(BMP_BG3), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+  blit(get_bitmap(BMP_BG3), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
 
   text_mode(-1);
 
   for (c=0; credits_text[c]; c++)
     textout_centre(bmp, datafile[FONT_GAME].dat, credits_text[c],
-      SCREEN_W/2, text_height(datafile[FONT_GAME].dat)*c, -1);
+      GAME_W/2, text_height(datafile[FONT_GAME].dat)*c, -1);
 
+  my_flip(bmp);
   my_clear_keybuf();
   readkey();
   my_clear_keybuf();

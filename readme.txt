@@ -1,5 +1,5 @@
 Donkey Bolonkey
-Copyright (C) 2001 por David A. Capello
+Copyright (C) 2001, 2008 por David A. Capello
 
 This game doesn't have any guarantee, read file COPYING for more details
 about this.
@@ -186,7 +186,8 @@ CREDITS
 	What you read now, was done outside of the SpeedHack
 	competition, since I was very tired then to write the
 	documentation.
-	This translation made Grzegorz Adam Hankiewicz. Thanks!
+	Thanks to Grzegorz Adam Hankiewicz to translate the
+        Spanish files (leadme.txt and ChangeLog.es) to English!!!
 
   Thanks to:
 	Specially:
@@ -214,4 +215,4 @@ EXTRA
   Copyright (C) 2001 by David A. Capello
 
   dacap@users.sourceforge.net
-  http://www.davidcapello.com.ar/
+  http://www.davidcapello.com.ar/dkbk/

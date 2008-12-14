@@ -153,10 +153,10 @@ void draw_hiscore(BITMAP *bmp)
   int i, x, y;
 
   /* background */
-  blit(get_bitmap(get_level()->bg), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+  blit(get_bitmap(get_level()->bg), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
 
   /* title */
-  textout_centre(bmp, datafile[FONT_GAME].dat, "HI-SCORES", SCREEN_W/2, 4, -1);
+  textout_centre(bmp, datafile[FONT_GAME].dat, "HI-SCORES", GAME_W/2, 4, -1);
 
   /* hiscore table */
   text_mode(-1);
@@ -168,7 +168,7 @@ void draw_hiscore(BITMAP *bmp)
     textprintf(bmp, datafile[FONT_HISCORE].dat, 48, y, -1,
       "%s", hiscore_table[i].name);
 
-    textprintf_right(bmp, datafile[FONT_HISCORE].dat, SCREEN_W-8, y, -1,
+    textprintf_right(bmp, datafile[FONT_HISCORE].dat, GAME_W-8, y, -1,
       "%d", hiscore_table[i].score);
   }
 
@@ -178,7 +178,7 @@ void draw_hiscore(BITMAP *bmp)
       if (hiscore_time%FRAMES_PER_SECOND < FRAMES_PER_SECOND/2) {
         text_mode(-1);
         textout_centre(bmp, datafile[FONT_GAME].dat,
-          "Press any key to continue", SCREEN_W/2, SCREEN_H-40, -1);
+          "Press any key to continue", GAME_W/2, GAME_H-40, -1);
       }
     }
   }

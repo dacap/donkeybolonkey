@@ -98,7 +98,7 @@ void draw_level(BITMAP *bmp)
   int xget, yget;
 
   /* background */
-  blit(get_bitmap(level->bg), bmp, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+  blit(get_bitmap(level->bg), bmp, 0, 0, 0, 0, GAME_W, GAME_H);
 
   /* blocks */
   doors_count = 0;

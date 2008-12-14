@@ -102,7 +102,7 @@ void update_particles()
     particle[i].time++;
 
     get_particle_position(i, &x, &y);
-    if ((x < -4) || (x >= SCREEN_W+4) || (y >= SCREEN_H+4)) {
+    if ((x < -4) || (x >= GAME_W+4) || (y >= GAME_H+4)) {
       /* delete particle */
       for (j=i; j<particle_count; j++)
         particle[j] = particle[j+1];

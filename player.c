@@ -239,18 +239,18 @@ void draw_player(BITMAP *bmp)
   /* game over */
   if (player->flags & PLAYER_FLAG_GAMEOVER) {
     draw_sprite(bmp, get_bitmap(BMP_GAMEOVER),
-      SCREEN_W/2-get_bitmap(BMP_GAMEOVER)->w/2,
-      SCREEN_H/2-get_bitmap(BMP_GAMEOVER)->h/2);
+      GAME_W/2-get_bitmap(BMP_GAMEOVER)->w/2,
+      GAME_H/2-get_bitmap(BMP_GAMEOVER)->h/2);
 
     if (player->time%(FRAMES_PER_SECOND*2) > FRAMES_PER_SECOND) {
       text_mode(-1);
 
       if (!(player->flags & PLAYER_FLAG_FINAL))
         textout_centre(bmp, datafile[FONT_GAME].dat,
-          "Press ENTER to continue", SCREEN_W/2, SCREEN_H-84, -1);
+          "Press ENTER to continue", GAME_W/2, GAME_H-84, -1);
 
       textout_centre(bmp, datafile[FONT_GAME].dat,
-        "Press ESC to exit", SCREEN_W/2, SCREEN_H-60, -1);
+        "Press ESC to exit", GAME_W/2, GAME_H-60, -1);
     }
   }
 }

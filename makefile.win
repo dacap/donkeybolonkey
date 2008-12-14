@@ -9,10 +9,13 @@ LFLAGS = -Wl,--subsystem=windows -s -lalleg
 
 default: all
 
-$(TARGET_NAME): $(TARGET_OBJS)
+$(TARGET_NAME): $(TARGET_OBJS) icon.res
 	$(GCC) -o $@ $^ $(LFLAGS)
 
 %.o: %.c
 	$(GCC) $(CFLAGS) -o $@ -c $<
+
+%.res: %.rc
+	windres -O coff -o $@ -i $<
 
 all: $(TARGET_NAME)

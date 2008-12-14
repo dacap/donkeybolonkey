@@ -30,6 +30,9 @@
 
 #define FRAMES_PER_SECOND	60
 
+#define GAME_W			320
+#define GAME_H			240
+
 
 
 #define BLOCK_WIDTH		18
@@ -146,6 +149,7 @@ extern struct _crusher_s {
 /* `main.c' */
 void show_final();
 void my_clear_keybuf(void);
+void my_flip(BITMAP *bmp);
 
 
 /* `graphics.c' */
@@ -239,7 +243,7 @@ void add_hiscore(int score);
 
 
 /* `title.c' */
-int title_screen();
+int title_screen(BITMAP *bmp);
 void active_hiscore();
 void draw_warning(BITMAP *bmp);
 void draw_controls(BITMAP *bmp);

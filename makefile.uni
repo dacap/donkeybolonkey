@@ -5,7 +5,7 @@ TARGET_OBJS = banner.o crusher.o donkey.o graphics.o hand.o hiscore.o \
 	      level.o main.o particle.o player.o title.o
 
 CFLAGS = -Wall -m486 -O3 -ffast-math
-LFLAGS = -s `allegro-config --libs --static`
+LFLAGS = -s `allegro-config --libs`
 
 default: all
 

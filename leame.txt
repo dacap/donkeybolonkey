@@ -36,15 +36,15 @@ SOBRE EL SPEEDHACK
   - una tabla de puntuaciones;
   - debía aparecer por lo menos un burro (el juego está lleno ;-)
   - tenía que haber un sistema de partículas (apenas lo jueguen...
-    se darán cuenta en que lo utilicé :-)
+    se darán cuenta en qué lo utilicé :-)
   - había que poner un "banner" (el BANNER VISION hace de las suyas)
   - el tamaño del código y datos (comprimidos en un ZIP), no debían
     superar los 250 KB;
 
   La competencia es organizada por Arron Shutt, y para más información,
-  puede visitar:
+  puede visitar (año 2001):
 
-    http://www.ashutt.demon.co.uk/speedhack/
+    http://www.speedhack.allegro.cc/
 
   Encontrará todo al respecto, y hasta los mismos juegos que participaron
   en la competecia.
@@ -74,12 +74,12 @@ SOBRE EL JUEGO
 NIVELES
 
   Si quiere agregar un nivel (solamente lo puede hacer con el código
-  fuente, Allegro y algún compilador aceptable por esta librería),
+  fuente, Allegro y algún compilador soportado por esta librería),
   debe tener en cuenta los archivos `levels.h' y `level.c'. También
   puede modificar niveles si lo quiere y le resulta más sencillo.
 
   Solamente hace falta ver un poco el archivo `levels.h' y darse
-  cuenta como funciona la cosa. Los niveles están por bloques,
+  cuenta cómo funciona la cosa. Los niveles están por bloques,
   los cuales contienen una letra determinada (recuerde que todos
   los bloques tienen una dirección, por lo que deberá utilizar
   el operador OR '|' para mezclar diferentes tipos):
@@ -132,7 +132,7 @@ CREDITOS
 	16hs + 18hs + 20hs = 54 horas despierto en TOTAL
 	Lo que nos da que dormí 18 horas solamente el
 	fin de semana.
-	También abría que restarle un par de horas por
+	También habría que restarle un par de horas por
 	la comida y esas cosas (como ir al baño por ej.).
 
   Gráficos:
@@ -191,6 +191,8 @@ CREDITOS
 	La que ven ahora, la hice fuera del horario del SpeedHack,
 	ya que estaba muy cansado como para escribir documentación en
 	ese entonces.
+	Gracias a Grzegorz Adam Hankiewicz por la traducción de este
+        archivo y el ChangeLog!!!
 
   Agradecimientos:
 	Especialmente a:
@@ -218,5 +220,5 @@ EXTRA
   Copyright (C) 2001 por David A. Capello
 
   dacap@users.sourceforge.net
-  http://www.davidcapello.com.ar/
+  http://www.davidcapello.com.ar/dkbk/
 

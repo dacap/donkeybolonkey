@@ -44,9 +44,8 @@ END_OF_STATIC_FUNCTION(inc_count);
 
 
 
-static void play_game()
+static void play_game(BITMAP *bmp)
 {
-  BITMAP *bmp = create_bitmap(SCREEN_W, SCREEN_H);
   int gameover = FALSE;
 
   init_level();
@@ -89,8 +88,7 @@ static void play_game()
     draw_particles_last(bmp);
     draw_player(bmp);
 
-    vsync();
-    blit(bmp, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    my_flip(bmp);
 
     /* create new capture */
     if (key[KEY_F12])
@@ -100,8 +98,9 @@ static void play_game()
     if (key[KEY_P]) {
       int old_count = count;
 
-      textout_centre(screen, datafile[FONT_GAME].dat, "[ PAUSE ]",
-        SCREEN_W/2, SCREEN_H/3, -1);
+      textout_centre(bmp, datafile[FONT_GAME].dat, "[ PAUSE ]",
+        GAME_W/2, GAME_H/3, -1);
+      my_flip(bmp);
 
       my_clear_keybuf();
       readkey();
@@ -119,8 +118,6 @@ static void play_game()
   shutdown_crusher();
   shutdown_banner();
   shutdown_player();
-
-  destroy_bitmap(bmp);
 }
 
 
@@ -150,8 +147,24 @@ void my_clear_keybuf(void)
 
 
 
+void my_flip(BITMAP *bmp)
+{
+  if (bmp != screen) {
+    vsync();
+    if (GAME_W == SCREEN_W && GAME_H == SCREEN_H)
+      blit(bmp, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+    else
+      stretch_blit(bmp, screen,
+		   0, 0, GAME_W, GAME_H,
+		   0, 0, SCREEN_W, SCREEN_H);
+  }
+}
+
+
+
 int main(int argc, char *argv[])
 {
+  BITMAP *bmp;
   int first = TRUE;
 
   (void)argc;
@@ -162,10 +175,18 @@ int main(int argc, char *argv[])
   allegro_init();
 
   set_color_depth(8);
-  if (set_gfx_mode(GFX_AUTODETECT, 320, 240, 0, 0) < 0) {
-    allegro_message("Error setting graphics mode\n");
-    return 1;
+  if (set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0) < 0) {
+    if (set_gfx_mode(GFX_AUTODETECT, 320, 240, 0, 0) < 0) {
+      allegro_message("Error setting graphics mode\n");
+      return 1;
+    }
   }
+
+  bmp = create_bitmap(GAME_W, GAME_H);
+  clear(bmp);
+  text_mode(-1);
+  textout(bmp, font, "Loading...", 0, 0, -1);
+  my_flip(bmp);
 
   install_timer();
   install_keyboard();
@@ -174,22 +195,23 @@ int main(int argc, char *argv[])
   init_graphics();
   init_hiscore();
 
-  draw_warning(screen);
+  draw_warning(bmp);
 
-  while (title_screen()) {
+  while (title_screen(bmp)) {
     if (first) {
-      draw_controls(screen);
+      draw_controls(bmp);
       first = FALSE;
     }
 
     show_final_state = FALSE;
-    play_game();
+    play_game(bmp);
     if (show_final_state)
       draw_credits(screen);
 
     active_hiscore();
   }
 
+  destroy_bitmap(bmp);
   shutdown_graphics();
   shutdown_hiscore();
   return 0;

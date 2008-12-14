@@ -36,7 +36,7 @@ void init_crusher()
   crusher.w = 32;
   crusher.h = 32;
   crusher.x = funnel.x1+(funnel.x2-funnel.x1)/2 - crusher.w/2;
-  crusher.y = SCREEN_H - crusher.h - 8;
+  crusher.y = GAME_H - crusher.h - 8;
 
   alarm_time_blue = -1;
   alarm_time_red = -1;
