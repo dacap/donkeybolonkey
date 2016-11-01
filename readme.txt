@@ -1,5 +1,5 @@
 Donkey Bolonkey
-Copyright (C) 2001, 2008 por David A. Capello
+Copyright (C) 2001, 2008 por David Capello
 
 This game doesn't have any guarantee, read file COPYING for more details
 about this.
@@ -81,7 +81,7 @@ LEVELS
   how it all works. The levels are composed by blocks, which have a
   specific letter (remember that all blocks have a direction, so
   you will have to use the OR operator 'I' to mix several types):
-  
+
   L: Left	The block makes the donkeys go left.
   U: Up		The block makes the donkeys go up.
   R: Right	The block makes the donkeys go right.
@@ -110,11 +110,11 @@ LEVELS
   `switch' to select the correct level, and don't worry, if you
   add more case statements (cas 7, case 8...) to add more levels,
   those will be called without problems.
-  
+
 CREDITS
 
   Programmer:
-	David A. Capello
+	David Capello
 	Programming in C/C++ with Allegro, DJGPP and RHIDE.
 	Total schedule:
 	Friday 26: from 10am to 2am of the next day.
@@ -131,7 +131,7 @@ CREDITS
 	eating and such things (ie: going to the bathroom).
 
   Graphics:
-	David A. Capello
+	David Capello
 	All of them were makde with my program 2D SPRITEStudio,
 	which still lacks Undo and Redo functions, but I made it.
 	The "Donkey Bolonkey" logo and "Game Over" where
@@ -177,7 +177,7 @@ CREDITS
 	without continuing with a score of 7200. Which means...
 	...IT'S POSSIBLE TO REACH THE END OF THE GAME!!!... although it
 	may be a little bit hard.
-	
+
   Title Donkey Bolonkey:
 	My brother Gaspar's idea.
 	(if I didn't put this... he would hit me :-)
@@ -212,7 +212,7 @@ EXTRA
   Finally, I added some old images of the game without being completed.
 
   --
-  Copyright (C) 2001 by David A. Capello
+  Copyright (C) 2001 David Capello
 
   dacap@users.sourceforge.net
   http://www.davidcapello.com.ar/dkbk/

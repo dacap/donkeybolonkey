@@ -1,5 +1,5 @@
 Donkey Bolonkey
-Copyright (C) 2001 por David A. Capello
+Copyright (C) 2001 por David Capello
 
 Este juego no tiene ningún tipo de garantía, ver el fichero COPYING
 para más detalles al respecto.
@@ -119,7 +119,7 @@ NIVELES
 CREDITOS
 
   Programador:
-	David A. Capello
+	David Capello
 	Programando en C/C++ con Allegro, DJGPP y RHIDE.
 	Horarios totales:
 	Viernes 26: de 10am a 2am del otro día.
@@ -136,7 +136,7 @@ CREDITOS
 	la comida y esas cosas (como ir al baño por ej.).
 
   Gráficos:
-	David A. Capello
+	David Capello
 	Todos los hice con mi programa 2D SPRITEStudio, eso
 	que todavía no tiene Undo ni Redo, pero lo logré.
 	El logo "Donkey Bolonkey" y "Game Over" fueron
@@ -217,8 +217,7 @@ EXTRA
   Por último, agregué un par de viejas imágenes del juego sin completar.
 
   --
-  Copyright (C) 2001 por David A. Capello
+  Copyright (C) 2001 por David Capello
 
   dacap@users.sourceforge.net
   http://www.davidcapello.com.ar/dkbk/
-
