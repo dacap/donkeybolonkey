@@ -214,5 +214,5 @@ EXTRA
   --
   Copyright (C) 2001 David Capello
 
-  dacap@users.sourceforge.net
-  http://www.davidcapello.com.ar/dkbk/
+  davidcapello@gmail.com
+  http://davidcapello.com/games/donkey-bolonkey/
